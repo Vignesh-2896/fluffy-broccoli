@@ -2,6 +2,33 @@ doctype html
 html
   head
     title= title
+    script(src = "/javascripts/popper.min.js")
+    script(src = "/javascripts/jquery-3.2.1.slim.min.js")
+    script(src = "/javascripts/bootstrap.min.js")
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+
   body
-    block content
+    nav(class = "navbar navbar-expand-xl navbar-dark bg-dark fixed-top")
+      a(class="navbar-brand" href="/") Otaku Playhouse
+      div(class = "container-fluid")
+        div(class = "collapse navbar-collapse")
+          ul(class = "navbar-nav ml-auto mb-2 mb-lg-0")
+            if (!currentUser)
+              li(class = "nav-item")
+                button(class = "btn btn-outline-success mr-2")
+                  a(href = "/login") Log In
+              li(class = "nav-item")
+                button(class = "btn btn-outline-warning" href = "#")
+                  a(href = "/signup") Sign Up
+
+            else
+              li(class="nav-item dropdown")
+                a(class="nav-link dropdown-toggle" href="#" id="userDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Hello #{locals.currentUser.username}
+                div(class="dropdown-menu" aria-labelledby="userDropDown")
+                  a(class="dropdown-item" href="/joinClub") Join the Club                  
+                  a(class="dropdown-item" href="/createPost") Create a Post
+                  a(class="dropdown-item" href="/logout") Log Out
+
+    div(class = "main-content")
+      block content

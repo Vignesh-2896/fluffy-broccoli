@@ -6,3 +6,51 @@ body {
 a {
   color: #00B7FF;
 }
+
+.main-content {
+  margin:30px;
+  padding:10px;
+}
+
+.small-content {
+  width:70%;
+  border-radius:20px;
+  border:1px solid black;
+  margin:10px auto 10px auto;
+  padding:30px;
+}
+
+.small-content-post {
+  width:80%;
+  border-radius:20px;
+  border:1px solid black;
+  margin:10px auto 10px auto;
+  padding:30px;
+}
+
+.small-content-display {
+  border:1px solid black;
+  margin:10px auto 10px auto;
+  padding:10px;
+  border-radius: 20px;
+  width: 80%;
+}
+
+.item-title {
+  height:30px;
+  margin:0px auto 5px auto;
+  width:95%;
+}
+
+.item-body {
+  height:90px;
+  margin:0px auto 5px auto;
+  width:95%;
+  padding-top:10px;
+}
+
+.item-user {
+  margin:0px auto 0px auto;
+  width:95%;
+  padding-top:10px
+}

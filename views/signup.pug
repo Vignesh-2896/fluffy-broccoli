@@ -1,0 +1,50 @@
+extends layout 
+
+block content
+    h2(class = "text-center text-italic") Sign Up
+
+    if errors
+        -   var form_userName = errors.find(err => err.param === "username");
+        -   var form_userEmail = errors.find(err => err.param === "useremail");
+        -   var form_userPassword = errors.find(err => err.param === "password");
+        -   var form_userConfirmPassword = errors.find(err => err.param === "confirmpassword");
+
+    form(method = "POST")
+        div(class = "small-content")
+            div(class = "form-group row justify-content-center")
+                label(for = "useremail" class = "col-2 col-form-label text-right") Email Address
+                div(class = "col-7")
+                    input(type = "email" name = "useremail" class = "form-control" placeholder = "example@gmail.com" value = (userData === undefined ? '' : userData.userEmail) required)
+                    if form_userEmail
+                        small(class =  "form-text text-danger") #{form_userEmail.msg}  
+
+            div(class = "form-group row justify-content-center")
+                label(for = "username" class = "col-2 col-form-label text-right") Username
+                div(class = "col-7")
+                    input(type = "text" name = "username" class = "form-control" placeholder = "Atleast 7 characters"  minlength = "7" value = (userData === undefined ? '' : userData.username) required)
+                    if form_userName
+                        small(class =  "form-text text-danger") #{form_userName.msg}                      
+
+            div(class = "form-group row justify-content-center")
+                label(for = "password" class = "col-2 col-form-label text-right") Password
+                div(class = "col-7")
+                    input(type = "password" name = "password" placeholder = "Atleast 8 characters"  minlength = "8" class = "form-control" required)
+                    if form_userPassword
+                        small(class =  "form-text text-danger") #{form_userPassword.msg}
+
+            div(class = "form-group row justify-content-center")
+                label(for = "confirmpassword" class = "col-2 col-form-label text-right") Confirm Password
+                div(class = "col-7")
+                    input(type = "password" name = "confirmpassword" placeholder = "Atleast 8 characters" minlength = "8" class = "form-control" required)     
+                    if form_userConfirmPassword
+                        small(class =  "form-text text-danger") #{form_userConfirmPassword.msg}  
+
+
+            div(class = "form-group row justify-content-center")
+                label(for = "adminCheck" class = "col-2 col-form-label text-right") Admin
+                div(class = "col-7")
+                    input(class = "form-check-input m-1" type = "checkbox" name = "adminCheck" value = 'true' checked = (userData === true ? 'checked':false))          
+
+            div(class = "form-row justify-content-center")
+                div(class = "col-auto")
+                    button(type = "Submit" class = "btn btn-primary") Submit   

@@ -1,0 +1,28 @@
+extends layout 
+
+block content
+    h2(class = "text-center text-italic") Create a Post
+
+    if errors
+        -   var form_postTitle = errors.find(err => err.param === "postTitle");
+
+    if postData
+        - var postDescription = postData.post_body;
+
+    form(method = "POST")
+        div(class = "small-content-post")
+            div(class = "form-group row justify-content-center")
+                label(for = "postTitle" class = "col-2 col-form-label text-right") Post Title
+                div(class = "col-7")
+                    input(type = "text" name = "postTitle" class = "form-control" placeholder = "Top Manga of 2021" value = (postData === undefined ? '' : postData.post_title) minlength = "8" required)
+                    if form_postTitle
+                        small(class =  "form-text text-danger") #{form_postTitle.msg}  
+
+            div(class = "form-group row justify-content-center")
+                label(for = "postDescription" class = "col-2 col-form-label text-right") Post Description
+                div(class = "col-7")
+                    textarea(class = "form-control" rows = "5" name = "postDescription" type="text" placeholder = "How is Blue Lock not in this list ? " required="true") #{postDescription}
+
+            div(class = "form-row justify-content-center")
+                div(class = "col-auto")
+                    button(type = "Submit" class = "btn btn-primary") Submit   
