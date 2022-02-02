@@ -11,6 +11,7 @@ exports.sign_up_get = function(req, res, next){
 }
 
 exports.sign_up_post = [
+    
     body("useremail").trim().escape(),
     body("username").trim().isLength({min:7}).withMessage("Atleast 7 characters needed.").escape(),
     body("password").trim().isLength({min:8}).withMessage("Atleast 8 characters needed.").escape(),
