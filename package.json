@@ -2,6 +2,7 @@
   "name": "fluffy-broccoli",
   "version": "0.0.0",
   "private": true,
+  "engines": {"node": "16.13.0"},
   "scripts": {
     "serverstart": "DEBUG=fluffy-broccoli:* npm run devstart",
     "devstart": "nodemon ./bin/www",

@@ -27,7 +27,7 @@ exports.sign_up_post = [
             password : newPassword
         });
 
-        if(req.body.adminCheck){
+        if(req.body.adminCheck !== undefined){
             user.userAdmin = true;
             user.userAccess = true;
         }
