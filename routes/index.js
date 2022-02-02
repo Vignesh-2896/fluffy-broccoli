@@ -19,6 +19,10 @@ router.get('/', checkLogin, function(req, res, next) {
     welcomeMessage = req.flash("successMessage");
   }
 
+  if(!welcomeMessage && !res.locals.currentUser){
+    welcomeMessage = "Welcome to the Otaku Clubhouse. Login and join the club to see your friends and start posting !" 
+  }
+
   const imageData = ["/images/charizard.jpg",
    "/images/izuki-(deku)-midoriya.jpg",
    "/images/might-guy.jpg",
